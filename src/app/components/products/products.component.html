@@ -1,0 +1,34 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <th scope="row">{{ product.id }}</th>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.price }}</td>
+      <td>
+        <button
+          class="btn btn-danger btn-sm"
+          (click)="deleteProduct($event, product.id)"
+        >
+          Delete
+        </button>
+
+        <button
+          class="btn btn-warning btn-sm mx-1"
+          routerLink="edit/{{product.id}}"
+        >
+          Edit
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
